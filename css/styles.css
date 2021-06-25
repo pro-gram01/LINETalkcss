@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  background: #BAD3FF;
+}
+
+/* 戻るボタン */
+.partner p {
+  text-align: left;
+  margin-top: -25px;
+  margin-left: 20px;
+}
+
+/* ヘッダー(相手の名前) */
+.partner {
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  color: #fff;
+  background-color: #000033;
+  height: 30px;
+  padding: 5px;
+}
+
+.container {
+  padding: 32px;
+}
+
+.messages {
+  margin: 0;
+  padding: 0;
+  /* <ul>の先頭の黒丸削除 */
+  list-style: none;
+}
+
+.messages li {
+  /* 画像とテキストを並列にする */
+  display: flex;
+}
+
+.messages li + li {
+  /* 2番目以降のliに余白を設定 */
+  margin-top: 32px;
+}
+
+/* 自分側のトーク */
+li.right-side {
+  /* picとtextを逆順に表示させる */
+  flex-direction: row-reverse;
+}
+
+/* 画像の幅と位置を設定し画像とテキストの間にスペースを作る */
+.pic {
+  /* background: pink; */
+  width: 80px;
+  text-align: center;
+}
+
+/* アイコン */
+.pic img {
+  width: 48px;
+  height: 48px;
+  /* imgを丸くする */
+  border-radius: 50%;
+}
+
+/* img下の名前 */
+.name {
+  font-size: 14px;
+  text-align: center;
+  margin-top: -5px;
+}
+
+.text {
+  background: 	#66FF66;
+  border-radius: 20px;
+  padding: 16px 24px;
+  max-width: 60%;
+  height: 30%;
+  line-height: 1.8;
+  position: relative;
+}
+
+.text2 {
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px 24px;
+  max-width: 60%;
+  height: 30%;
+  line-height: 1.8;
+  position: relative;
+}
+
+/* textにbefore擬似要素を使用 */
+/* 最初は白の四角形を作成 */
+.text::before {
+  content: "";
+  width: 0;
+  height: 0;
+  /* border: 8px solid #fff; */
+  /* 三角形以外の部分のボーダーを透明にする */
+  border: 8px solid transparent;
+  /* 絶対配置に設定 */
+  position: absolute;
+}
+
+/* 相手側のも用意 */
+.text2::before {
+  content: "";
+  width: 0;
+  height: 0;
+  /* border: 8px solid #fff; */
+  /* 三角形以外の部分を透明にする */
+  border: 8px solid transparent;
+  /* 絶対配置に設定 */
+  position: absolute;
+}
+
+/* 右(自分)側の擬似要素 */
+.right-side .text::before {
+  /* 三角形の位置をtopとleftで調整 */
+  top: 20px;
+  right: -16px;
+  /* 四角形の左側のみ白くする(▶) */
+  border-left-color: #66FF66;
+}
+
+/* 左側(相手側)の擬似要素 */
+.left-side .text2::before {
+  /* 三角形の位置をtopとleftで調整 */
+  top: 20px;
+  left: -16px;
+  /* 四角形の右側のみ白くする(◀) */
+  border-right-color: #fff;
+}
+
